@@ -71,10 +71,6 @@ export default {
         }
       })
     },
-    doLogout () {
-      localStorage.clear()
-      this.$router.push('/')
-    },
     doRegister () {
       var self = this
       this.$http.post('/register', self.signup)
