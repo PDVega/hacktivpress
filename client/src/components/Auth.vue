@@ -25,14 +25,12 @@
               <h4 class="modal-title" id="myModalLabel">Register</h4>
             </div>
             <div class="modal-body">
-              <input type="text" class="form-control" v-model="signup.name" placeholder="Name"><br>
               <input type="text" class="form-control" v-model="signup.username" placeholder="Username"><br>
               <input type="password" class="form-control" v-model="signup.password" placeholder="Password"><br>
-              <input type="text" class="form-control" v-model="signup.email" placeholder="me@email.com"><br>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
-              <button type="button" class="btn btn-primary" @click="doRegister">Register</button>
+              <button type="button" class="btn btn-primary" @click="doRegister" data-dismiss="modal">Register</button>
             </div>
           </div>
         </div>
@@ -67,7 +65,7 @@ export default {
           localStorage.setItem('token', get.data.token)
           localStorage.setItem('id', get.data.id)
           localStorage.setItem('username', get.data.username)
-          this.$router.push('/question')
+          this.$router.push('/home')
         } else {
           this.$router.push('/')
         }
@@ -80,7 +78,7 @@ export default {
     doRegister () {
       var self = this
       this.$http.post('/register', self.signup)
-      .then(get => this.$router.push('/question'))
+      .then(get => this.$router.push('/'))
     }
   }
 }
