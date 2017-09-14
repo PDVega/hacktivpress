@@ -6,7 +6,6 @@ const Controller = require('../controllers/articleController')
 router.post('/', Controller.post)
 router.get('/', Controller.getAll)
 router.get('/:id', Controller.getOne)
-// router.put('/:id', Controller.updateArticle)
 router.put('/:id', Controller.update)
 router.delete('/:id', Controller.destroy)
 

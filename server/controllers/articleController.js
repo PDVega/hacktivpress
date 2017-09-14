@@ -30,8 +30,30 @@ let getOne = (req, res) => {
   })
 }
 
+let update = (req, res) => {
+  Article.findOneAndUpdate ({
+    _id: req.params.id
+  }, req.body, {
+    new: true
+  }, (err, updatedArticle) => {
+    if (err) throw err
+      res.send (updatedArticle);
+  })
+}
+
+let destroy = (req, res) => {
+  Article.remove ({
+    _id: req.params.id
+  }, (err, deleted) => {
+    if (err) throw err
+      res.send(deleted);
+  })
+}
+
 module.exports = {
   post,
   getAll,
-  getOne  
+  getOne,
+  update,
+  destroy
 };
