@@ -12,6 +12,16 @@ let post = (req, res) => {
   })
 }
 
+let getAll = (req, res) => {
+  Article.find({}, (err, articles) => {
+    if (err) throw err
+    // console.log('All articles: ');
+    // console.log(articles);
+    res.send(articles)
+  })
+}
+
 module.exports = {
-  post
+  post,
+  getAll
 };
