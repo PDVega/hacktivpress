@@ -98,3 +98,11 @@ routes | HTTP | Description
         token | (e.g : $x*#@jshjsl) | your token when login
         
         Delete article by article id
+
+
+### Setting route FrontEnd
+
+routes | HTTP | Description
+-------|------|------------
+/localhost:8080/ | Authentication | Register new account and Login
+/localhost:8080/articles | See Blog | Login while get an access token based on credentials
