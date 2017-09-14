@@ -17,7 +17,11 @@ const mutations = {
     state.articles = payload
   },
   saveArticle (state, payload) {
-    state.articles.unshift(payload)
+    state.articles.push(payload)
+  },
+  deleteArticle (state, payload) {
+    const idx = state.articles.findIndex((article) => article._id === payload)
+    state.articles.splice(idx, 1)
   }
 }
 
@@ -33,6 +37,13 @@ const actions = {
     http.post('/articles', newArticle)
     .then(({data}) => {
       commit('saveArticle', data)
+    })
+    .catch(err => console.error(err))
+  },
+  deleteArticle ({ commit }, articleId) {
+    http.delete('/articles/' + articleId)
+    .then(({data}) => {
+      commit('deleteArticle', articleId)
     })
     .catch(err => console.error(err))
   }

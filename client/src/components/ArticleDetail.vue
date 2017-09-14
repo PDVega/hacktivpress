@@ -6,6 +6,7 @@
       </div>
       <div class="panel-body">
         <p>{{ article.content }}</p>
+        <button type="button" class="btn btn-info btn-sm" @click="deleteArticle(article._id)">Delete</button>
       </div>
       <div class="panel-footer">
         <p><span class="glyphicon glyphicon-paperclip"></span> {{ article.category }}</p>
@@ -15,8 +16,14 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 export default {
-  props: ['article']
+  props: ['article'],
+  methods: {
+    ...mapActions([
+      'deleteArticle'
+    ])
+  }
 }
 </script>
 
