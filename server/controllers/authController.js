@@ -23,6 +23,33 @@ let register = (req, res) => {
   })
 }
 
+let login = (req, res) => {
+  const username = req.body.username;
+  const password = req.body.password;
+  if(!username || !password){
+    res.send('Please input username and password!')
+  } else {
+    User.findOne({username: username})
+    .then(user => {
+      console.log('Data User: ');
+      console.log(user);
+      bcrypt.compare(password, user.password)
+      .then(bcryptResult => {
+        if(bcryptResult){
+          const token = jwt.sign({username: user.username, id: user._id}, process.env.SECRET_KEY, { expiresIn: '1d'});
+          res.json({message: 'Login success', username: username, token: token, id: user._id})
+        } else {
+          res.send('Wrong Password')
+        }
+      })
+    })
+    .catch(err => {
+      res.send('Username not found')
+    })
+  }
+}
+
 module.exports = {
-  register
+  register,
+  login
 };
