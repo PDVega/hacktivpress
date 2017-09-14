@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <div id="auth">
   <div class="container">
     <div class="row">
       <div class="col-md-4 col-md-offset-4">
-        <h1><strong>HACKTIVPRESS/strong></h1>
+        <h1><strong>HACKTIVPRESS</strong></h1>
         <br>
         <div class="list-group">
           <input type="text" placeholder="Username" class="form-control" v-model="signin.username">
@@ -85,3 +85,10 @@ export default {
   }
 }
 </script>
+
+<style>
+#auth {
+  text-align: center;
+  margin-top: 60px;
+}
+</style>
