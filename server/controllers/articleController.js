@@ -15,13 +15,23 @@ let post = (req, res) => {
 let getAll = (req, res) => {
   Article.find({}, (err, articles) => {
     if (err) throw err
-    // console.log('All articles: ');
-    // console.log(articles);
     res.send(articles)
+  })
+}
+
+let getOne = (req, res) => {
+  Article.findOne({
+    _id: req.params.id
+  })
+  .populate('author')
+  .exec((err, article) => {
+    if (err) throw err
+      res.send(article)
   })
 }
 
 module.exports = {
   post,
-  getAll
+  getAll,
+  getOne  
 };
