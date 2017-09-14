@@ -4,6 +4,12 @@
       <div class="panel-heading">
         <h3 class="panel-title"><strong>{{ article.title }}</strong></h3>
       </div>
+      <div class="panel-body">
+        <p>{{ article.content }}</p>
+      </div>
+      <div class="panel-footer">
+        <p><span class="glyphicon glyphicon-paperclip"></span> {{ article.category }}</p>
+      </div>
     </div>
   </div>
 </template>

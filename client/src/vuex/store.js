@@ -17,7 +17,7 @@ const mutations = {
     state.articles = payload
   },
   saveArticle (state, payload) {
-    state.articles.push(payload)
+    state.articles.unshift(payload)
   }
 }
 
