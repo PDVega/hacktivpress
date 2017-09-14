@@ -5,15 +5,15 @@
         <form @submit.prevent="postArticle(formArticle)">
           <div class="form-group">
             <label class="control-label" for="focusedInput">Title</label>
-            <input class="form-control" type="text" v-model="formArticle.title">
-          </div>
-          <div class="form-group">
-            <label class="control-label" for="focusedInput">Content</label>
-            <input class="form-control" type="text" v-model="formArticle.content">
+            <input class="form-control" type="text" v-model="formArticle.title" placeholder="Title">
           </div>
           <div class="form-group">
             <label class="control-label" for="focusedInput">Category</label>
-            <input class="form-control" type="text" v-model="formArticle.category">
+            <input class="form-control" type="text" v-model="formArticle.category" placeholder="Category">
+          </div>
+          <div class="form-group">
+            <label class="control-label" for="focusedInput">Content</label>
+            <textarea class="form-control" rows="3" v-model="formArticle.content" placeholder="Content of blog"></textarea>
           </div>
           <div class="form-group">
             <button type="submit" class="btn btn-primary">Submit</button>
